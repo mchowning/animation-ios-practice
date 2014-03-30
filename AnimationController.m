@@ -21,49 +21,67 @@
     return _startColor;
 }
 
--(NSMutableArray *)colorsArray {
-    CGFloat red = 0.0;
-    CGFloat green = 0.0;
-    CGFloat blue = 0.0;
-    CGFloat alpha = 0.0;
-    if ([self.startColor respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
-        [self.startColor getRed:&red green:&green blue:&blue alpha:&alpha];
+- (UIColor *)stopColor {
+    if (!_stopColor) {
+        _stopColor = [UIColor whiteColor];
     }
+    return _stopColor;
+}
+
+-(NSMutableArray *)colorsArray {
+    CGFloat startRed, startGreen, startBlue, startAlpha;
+    if ([self.startColor respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+        [self.startColor getRed:&startRed green:&startGreen blue:&startBlue alpha:&startAlpha];
+    }
+    
+    CGFloat stopRed, stopGreen, stopBlue, stopAlpha;
+    if ([self.stopColor respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
+        [self.stopColor getRed:&stopRed green:&stopGreen blue:&stopBlue alpha:&stopAlpha];
+    }
+    
+    NSUInteger numberOfColorsBetweenStartAndStopColors = [self.views count] - 1;
+    
+    CGFloat redIntervalChange = [self getColorComponentChangeFrom:startRed
+                                                               to:stopRed
+                                                withNumberOfSteps:numberOfColorsBetweenStartAndStopColors];
+    CGFloat greenIntervalChange = [self getColorComponentChangeFrom:startGreen
+                                                                 to:stopGreen
+                                                  withNumberOfSteps:numberOfColorsBetweenStartAndStopColors];
+    CGFloat blueIntervalChange = [self getColorComponentChangeFrom:startBlue
+                                                                to:stopBlue
+                                                 withNumberOfSteps:numberOfColorsBetweenStartAndStopColors];
+    CGFloat alphaIntervalChange = [self getColorComponentChangeFrom:startAlpha
+                                                                 to:stopAlpha
+                                                  withNumberOfSteps:numberOfColorsBetweenStartAndStopColors];
+    
     
     _colorsArray = [[NSMutableArray alloc] init];
     _colorsArray[0] = self.startColor;
     
-    NSUInteger numberOfColors = [self.views count];
-    
-    CGFloat maxColorComponent = MAX(green, MAX(green,blue));
-    CGFloat redChange, greenChange, blueChange;
-    if (maxColorComponent) {
-        CGFloat totalMaximumChange = 1.0 - maxColorComponent;
-        CGFloat totalIncrementalChangeForEachView = totalMaximumChange / numberOfColors;
-        CGFloat percentChangeFromInitialColor = totalIncrementalChangeForEachView / maxColorComponent;
-        
-        redChange = red * percentChangeFromInitialColor;
-        greenChange = green * percentChangeFromInitialColor;
-        blueChange = blue * percentChangeFromInitialColor;
-    } else {
-        redChange = greenChange = blueChange = 1.0 / numberOfColors;
-    }
-    
-    
-    for (NSInteger i = 1; i < numberOfColors; i++) {
-        CGFloat newRed = red + (i * redChange);
-        CGFloat newGreen = green + (i * greenChange);
-        CGFloat newBlue = blue + (i * blueChange);
+    for (NSInteger i = 1; i < numberOfColorsBetweenStartAndStopColors; i++) {
+        CGFloat newRed = startRed + (i * redIntervalChange);
+        CGFloat newGreen = startGreen + (i * greenIntervalChange);
+        CGFloat newBlue = startBlue + (i * blueIntervalChange);
+        CGFloat newAlpha = startAlpha + (i * alphaIntervalChange);
         
         UIColor *newColor = [UIColor colorWithRed:newRed
                                             green:newGreen
                                              blue:newBlue
-                                            alpha:alpha];
+                                            alpha:newAlpha];
         
         [_colorsArray addObject:newColor];
     }
     
+    [_colorsArray addObject:self.stopColor];
+    
     return _colorsArray;
+}
+
+- (CGFloat)getColorComponentChangeFrom:(CGFloat)start
+                                    to:(CGFloat)stop
+                     withNumberOfSteps:(NSUInteger) numSteps
+{
+    return (stop - start) / numSteps;
 }
 
 

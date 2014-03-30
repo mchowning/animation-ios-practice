@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) NSArray *views;
 @property (nonatomic, strong) UIColor *startColor;
+@property (nonatomic, strong) UIColor *stopColor;
 @property (nonatomic) NSUInteger numberOfCycles;
 
 - (void)startAnimation;

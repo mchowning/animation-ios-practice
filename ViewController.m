@@ -11,9 +11,14 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) AnimationController *animationController;
+
 //UI
 @property (weak, nonatomic) IBOutlet UIStepper *numberStepper;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
+@property (weak, nonatomic) IBOutlet UIButton *startColorLabelButton;
+@property (weak, nonatomic) IBOutlet UIButton *stopColorLabelButton;
+@property (strong, nonatomic) UIButton *changingColorLabel;
 
 //Views
 @property (strong, nonatomic) NSArray *views;
@@ -25,30 +30,36 @@
 @property (weak, nonatomic) IBOutlet UIView *view6;
 @property (weak, nonatomic) IBOutlet UIView *view7;
 @property (weak, nonatomic) IBOutlet UIView *view8;
-@property (weak, nonatomic) IBOutlet UIView *view9;
-@property (weak, nonatomic) IBOutlet UIView *view10;
 
 @end
 
 @implementation ViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.numberStepper.maximumValue = [self.views count];
-    self.numberStepper.value = 5;
+    self.numberStepper.value = 4;
     self.numberLabel.text = @(self.numberStepper.value).stringValue;
+    
+    self.startColorLabelButton.backgroundColor = [UIColor blackColor];
+    self.startColorLabelButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.startColorLabelButton.layer.borderWidth = 1;
+    
+    self.stopColorLabelButton.backgroundColor = [UIColor whiteColor];
+    self.stopColorLabelButton.layer.borderColor = [UIColor blackColor].CGColor;
+    self.stopColorLabelButton.layer.borderWidth = 1;
+    
 }
 
 #pragma mark - Setter and Getter methods
+
+- (AnimationController *)animationController {
+    if (!_animationController) {
+        _animationController = [[AnimationController alloc] init];
+    }
+    return _animationController;
+}
 
 - (NSArray *)views {
     if (!_views) {
@@ -59,9 +70,7 @@
                    self.view5,
                    self.view6,
                    self.view7,
-                   self.view8,
-                   self.view9,
-                   self.view10];
+                   self.view8];
     }
     return _views;
 }
@@ -69,25 +78,60 @@
 #pragma mark - Interactivity methods
 
 - (IBAction)touchStartButton {
-    
+    [self giveAllViewsWhiteBackground];
+    self.animationController.views = [self getViewsToAnimate];
+    self.animationController.startColor = self.startColorLabelButton.backgroundColor;
+    self.animationController.stopColor = self.stopColorLabelButton.backgroundColor;
+    [self.animationController startAnimation];
+}
+
+- (void)giveAllViewsWhiteBackground {
     for (NSInteger i = 0; i < [self.views count]; i++) {
         UIView *aView = self.views[i];
         aView.backgroundColor = [UIColor clearColor];
     }
-    
+}
+
+- (NSMutableArray *)getViewsToAnimate {
     NSInteger numViewsToUse = self.numberStepper.value;
     NSMutableArray *viewsToAnimate = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < numViewsToUse; i++) {
         [viewsToAnimate addObject:self.views[i]];
     }
-    AnimationController *animationController = [[AnimationController alloc] init];
-    animationController.views = viewsToAnimate;
-    [animationController startAnimation];
+    return viewsToAnimate;
 }
 
 - (IBAction)stepperChanged {
     NSInteger numViews = self.numberStepper.value;
     self.numberLabel.text = @(numViews).stringValue;
+}
+
+- (IBAction)touchChangeStartColorButton {
+    self.changingColorLabel = self.startColorLabelButton;
+    InfColorPickerController *colorPicker = [InfColorPickerController colorPickerViewController];
+    colorPicker.sourceColor = [UIColor blueColor];
+    colorPicker.delegate = self;
+    [self.navigationController pushViewController:colorPicker animated:YES];
+}
+
+- (IBAction)touchChangeStartColorLabel {
+    [self touchChangeStartColorButton];
+}
+
+- (IBAction)touchChangeFinishColorButton {
+    self.changingColorLabel = self.stopColorLabelButton;
+    InfColorPickerController *colorPicker = [InfColorPickerController colorPickerViewController];
+    colorPicker.sourceColor = [UIColor blueColor];
+    colorPicker.delegate = self;
+    [self.navigationController pushViewController:colorPicker animated:YES];
+}
+
+- (IBAction)touchChangeFinishColorLabel {
+    [self touchChangeFinishColorButton];
+}
+
+- (void)colorPickerControllerDidChangeColor:(InfColorPickerController *)controller {
+    self.changingColorLabel.backgroundColor = controller.resultColor;
 }
 
 @end
