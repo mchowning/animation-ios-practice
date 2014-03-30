@@ -8,7 +8,6 @@
             <connections>
                 <outlet property="numberLabel" destination="C2h-XR-TDh" id="NEa-B2-0Ao"/>
                 <outlet property="numberStepper" destination="4cc-t1-FzI" id="51a-Zd-DKk"/>
-                <outlet property="startButton" destination="zmi-ND-fXO" id="cG2-fl-7ub"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="view1" destination="86m-ed-Uuf" id="t3h-bg-pfS"/>
                 <outlet property="view10" destination="Iv1-kV-nBj" id="YUQ-lh-01x"/>
@@ -80,6 +79,9 @@
                 <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="4cc-t1-FzI">
                     <rect key="frame" x="10" y="59" width="94" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <connections>
+                        <action selector="stepperChanged" destination="-1" eventType="valueChanged" id="AcP-O5-ZAB"/>
+                    </connections>
                 </stepper>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2h-XR-TDh">
                     <rect key="frame" x="112" y="63" width="42" height="21"/>
@@ -95,6 +97,9 @@
                     <state key="normal" title="Start">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="touchStartButton" destination="-1" eventType="touchUpInside" id="fbx-XS-dvu"/>
+                    </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="# of Views to Use" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PrR-4X-rsH">
                     <rect key="frame" x="10" y="25" width="138" height="21"/>

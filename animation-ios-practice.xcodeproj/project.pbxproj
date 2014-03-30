@@ -21,6 +21,7 @@
 		24BA0B9718E78BF400DD350F /* animation_ios_practiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BA0B9618E78BF400DD350F /* animation_ios_practiceTests.m */; };
 		24BA0BA318E78C1100DD350F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BA0BA118E78C1100DD350F /* ViewController.m */; };
 		24BA0BA418E78C1100DD350F /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24BA0BA218E78C1100DD350F /* ViewController.xib */; };
+		24BA0BA718E78DD000DD350F /* AnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BA0BA618E78DD000DD350F /* AnimationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		24BA0BA018E78C1100DD350F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		24BA0BA118E78C1100DD350F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		24BA0BA218E78C1100DD350F /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		24BA0BA518E78DD000DD350F /* AnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationController.h; sourceTree = "<group>"; };
+		24BA0BA618E78DD000DD350F /* AnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				24BA0BA018E78C1100DD350F /* ViewController.h */,
 				24BA0BA118E78C1100DD350F /* ViewController.m */,
 				24BA0BA218E78C1100DD350F /* ViewController.xib */,
+				24BA0BA518E78DD000DD350F /* AnimationController.h */,
+				24BA0BA618E78DD000DD350F /* AnimationController.m */,
 				24BA0B7718E78BF400DD350F /* animation-ios-practice */,
 				24BA0B9018E78BF400DD350F /* animation-ios-practiceTests */,
 				24BA0B7018E78BF400DD350F /* Frameworks */,
@@ -248,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24BA0BA718E78DD000DD350F /* AnimationController.m in Sources */,
 				24BA0BA318E78C1100DD350F /* ViewController.m in Sources */,
 				24BA0B8218E78BF400DD350F /* AppDelegate.m in Sources */,
 				24BA0B7E18E78BF400DD350F /* main.m in Sources */,
