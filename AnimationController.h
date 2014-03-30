@@ -10,11 +10,13 @@
 
 @interface AnimationController : NSObject
 
-@property (nonatomic, weak) NSArray *views;
+@property (nonatomic, strong) NSArray *views;
 @property (nonatomic, strong) UIColor *startColor;
 @property (nonatomic, strong) UIColor *stopColor;
 @property (nonatomic) NSUInteger numberOfCycles;
+@property (nonatomic) NSTimeInterval animationInterval;
 
 - (void)startAnimation;
+- (void)endAnyAnimation;
 
 @end

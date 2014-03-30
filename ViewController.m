@@ -52,6 +52,10 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.animationController endAnyAnimation];
+}
+
 #pragma mark - Setter and Getter methods
 
 - (AnimationController *)animationController {
@@ -82,6 +86,7 @@
     self.animationController.views = [self getViewsToAnimate];
     self.animationController.startColor = self.startColorLabelButton.backgroundColor;
     self.animationController.stopColor = self.stopColorLabelButton.backgroundColor;
+    self.animationController.numberOfCycles = 12;
     [self.animationController startAnimation];
 }
 
