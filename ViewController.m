@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  kimberly-clark-practice
+// animation-ios-practice
 //
 //  Created by Matt Chowning on 3/29/14.
 //  Copyright (c) 2014 Matt Chowning. All rights reserved.
@@ -39,7 +39,7 @@
 {
     [super viewDidLoad];
     self.numberStepper.maximumValue = [self.views count];
-    self.numberStepper.value = 4;
+    self.numberStepper.value = 4; // Arbitrary starting value
     self.numberLabel.text = @(self.numberStepper.value).stringValue;
     
     self.startColorLabelButton.backgroundColor = [UIColor blackColor];
@@ -53,7 +53,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [self.animationController endAnyAnimation];
+    [self.animationController endAllAnimation];
 }
 
 #pragma mark - Setter and Getter methods
@@ -86,7 +86,7 @@
     self.animationController.views = [self getViewsToAnimate];
     self.animationController.startColor = self.startColorLabelButton.backgroundColor;
     self.animationController.stopColor = self.stopColorLabelButton.backgroundColor;
-    self.animationController.numberOfCycles = 12;
+    self.animationController.numberOfAnimationsToComplete = 12; // Arbitrary value
     [self.animationController startAnimation];
 }
 
