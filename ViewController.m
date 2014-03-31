@@ -86,24 +86,11 @@
     self.animationController.views = [self getViewsToAnimate];
     self.animationController.startColor = self.startColorLabelButton.backgroundColor;
     self.animationController.stopColor = self.stopColorLabelButton.backgroundColor;
-    self.animationController.numberOfAnimationsToComplete = 12; // Arbitrary value
+//    self.animationController.numberOfAnimationsToComplete = 18; 
     [self.animationController startAnimation];
 }
-
-- (void)giveAllViewsWhiteBackground {
-    for (NSInteger i = 0; i < [self.views count]; i++) {
-        UIView *aView = self.views[i];
-        aView.backgroundColor = [UIColor clearColor];
-    }
-}
-
-- (NSMutableArray *)getViewsToAnimate {
-    NSInteger numViewsToUse = self.numberStepper.value;
-    NSMutableArray *viewsToAnimate = [[NSMutableArray alloc] init];
-    for (NSInteger i = 0; i < numViewsToUse; i++) {
-        [viewsToAnimate addObject:self.views[i]];
-    }
-    return viewsToAnimate;
+- (IBAction)touchEndButton {
+    [self.animationController endAllAnimation];
 }
 
 - (IBAction)stepperChanged {
@@ -119,10 +106,6 @@
     [self.navigationController pushViewController:colorPicker animated:YES];
 }
 
-- (IBAction)touchChangeStartColorLabel {
-    [self touchChangeStartColorButton];
-}
-
 - (IBAction)touchChangeFinishColorButton {
     self.changingColorLabel = self.stopColorLabelButton;
     InfColorPickerController *colorPicker = [InfColorPickerController colorPickerViewController];
@@ -131,9 +114,25 @@
     [self.navigationController pushViewController:colorPicker animated:YES];
 }
 
-- (IBAction)touchChangeFinishColorLabel {
-    [self touchChangeFinishColorButton];
+#pragma mark - Internal view manipulation methods
+
+- (void)giveAllViewsWhiteBackground {
+    for (NSUInteger i = 0; i < [self.views count]; i++) {
+        UIView *aView = self.views[i];
+        aView.backgroundColor = [UIColor clearColor];
+    }
 }
+
+- (NSMutableArray *)getViewsToAnimate {
+    NSInteger numViewsToUse = self.numberStepper.value;
+    NSMutableArray *viewsToAnimate = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < numViewsToUse; i++) {
+        [viewsToAnimate addObject:self.views[i]];
+    }
+    return viewsToAnimate;
+}
+
+#pragma mark = InfColorPickerControllerDelegate methods
 
 - (void)colorPickerControllerDidChangeColor:(InfColorPickerController *)controller {
     self.changingColorLabel.backgroundColor = controller.resultColor;

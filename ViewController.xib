@@ -32,37 +32,37 @@
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o8d-5B-vle">
-                    <rect key="frame" x="0.0" y="240" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="231" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FY6-Jf-eZq">
-                    <rect key="frame" x="0.0" y="384" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="348" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R8g-Ot-hDU">
-                    <rect key="frame" x="0.0" y="336" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="309" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZSc-Ny-MmW">
-                    <rect key="frame" x="0.0" y="288" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="270" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1oh-EB-CY9">
-                    <rect key="frame" x="0.0" y="432" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="387" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P1T-JQ-Hnf">
-                    <rect key="frame" x="0.0" y="480" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="426" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2g-tn-aiK">
-                    <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="464" width="320" height="40"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
@@ -81,9 +81,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmi-ND-fXO">
-                    <rect key="frame" x="201" y="141" width="73" height="30"/>
+                    <rect key="frame" x="209" y="121" width="57" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <state key="normal" title="Start">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -104,9 +104,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="touchChangeColorButton" destination="-1" eventType="touchUpInside" id="De5-SX-xQP"/>
-                        <action selector="touchChangeStartColorButton" destination="-1" eventType="touchUpInside" id="0xc-MU-SHg"/>
-                        <action selector="touchChnageStartColorButton:" destination="-1" eventType="touchUpInside" id="oyW-aq-7g9"/>
+                        <action selector="touchChangeStartColorButton" destination="-1" eventType="touchUpInside" id="r8Z-Xg-GRc"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unn-4q-Uwt">
@@ -116,9 +114,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="touchChangeColorButton" destination="-1" eventType="touchUpInside" id="2am-X7-5yz"/>
-                        <action selector="touchChangeFinishColorButton" destination="-1" eventType="touchUpInside" id="wHd-Dl-fL9"/>
-                        <action selector="touchFinishColorButton" destination="-1" eventType="touchUpInside" id="pcS-0S-wZM"/>
+                        <action selector="touchChangeFinishColorButton" destination="-1" eventType="touchUpInside" id="InW-jP-i6r"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEs-JK-1tF">
@@ -129,7 +125,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="touchChangeStartColorLabel" destination="-1" eventType="touchUpInside" id="Wzo-bb-lIt"/>
+                        <action selector="touchChangeStartColorButton" destination="-1" eventType="touchUpInside" id="uc9-bn-xf0"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMw-PT-bib">
@@ -140,7 +136,18 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="touchChangeFinishColorLabel" destination="-1" eventType="touchUpInside" id="hF8-VB-G0d"/>
+                        <action selector="touchChangeFinishColorButton" destination="-1" eventType="touchUpInside" id="yeS-L3-irU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83v-6c-hY6">
+                    <rect key="frame" x="207" y="159" width="60" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <state key="normal" title="End">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="touchEndButton" destination="-1" eventType="touchUpInside" id="vzx-Bk-nQ2"/>
                     </connections>
                 </button>
             </subviews>
